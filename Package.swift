@@ -30,7 +30,10 @@ let package = Package(
         ),
         .target(
             name: "ContactsFeature",
-            dependencies: []
+            dependencies: [
+                "ContactsClient",
+                "SharedModels"
+            ]
         ),
         .target(
             name: "SharedModels",
