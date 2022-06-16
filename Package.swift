@@ -26,7 +26,9 @@ let package = Package(
     targets: [
         .target(
             name: "ContactsClient",
-            dependencies: []
+            dependencies: [
+                "SharedModels"
+            ]
         ),
         .target(
             name: "ContactsFeature",
