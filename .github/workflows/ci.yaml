@@ -9,11 +9,23 @@ on:
       - '*'
 
 jobs:
-  test:
+  test-latest:
     runs-on: macos-12
     strategy:
       matrix:
-        xcode: [13.3, 12.4, 11.4.1]
+        xcode: [13.3]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Select Xcode ${{ matrix.xcode }}
+        run: sudo xcode-select -s /Applications/Xcode_${{ matrix.xcode }}.app
+      - name: Run tests
+        run: make test-xcode-${{ matrix.xcode }}
+
+  test-old:
+    runs-on: macos-10.5
+    strategy:
+      matrix:
+        xcode: [12.4, 11.4.1]
     steps:
       - uses: actions/checkout@v2
       - name: Select Xcode ${{ matrix.xcode }}
