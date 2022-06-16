@@ -13,7 +13,7 @@ jobs:
     runs-on: macos-12
     strategy:
       matrix:
-        xcode: [13.3, 12.4.1, 11]
+        xcode: [13.3, 12.4, 11.4.1]
     steps:
       - uses: actions/checkout@v2
       - name: Select Xcode ${{ matrix.xcode }}
