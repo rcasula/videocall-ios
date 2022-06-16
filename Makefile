@@ -6,22 +6,22 @@ format:
 		./Sources ./Tests ./App Package.swift \
 		--configuration swift-format.json
 
-PLATFORM_IOS_LATEST = iOS Simulator,name=iPhone 13 Pro
-PLATFORM_IOS_13 = iOS Simulator,name=iPhone 11 Pro,OS=13.3
-PLATFORM_IOS_10 = iOS Simulator,name=iPhone 8,OS=10
+test-all: test-latest test-13 test-10
 
-test:
+test-xcode-13.3:
 	@xcodebuild test \
 			-project App/videocall.xcodeproj \
 			-scheme videocall \
-			-destination platform="$(PLATFORM_IOS_LATEST)"
+			-destination platform="iOS Simulator,name=iPhone 13 Pro"
 
+test-xcode-12.4.1:
 	@xcodebuild test \
 			-project App/videocall.xcodeproj \
 			-scheme videocall \
-			-destination platform="$(PLATFORM_IOS_13)"
+			-destination platform="iOS Simulator,name=iPhone 11 Pro,OS=13.3"
 
+test-xcode-11:
 	@xcodebuild test \
 			-project App/videocall.xcodeproj \
 			-scheme videocall \
-			-destination platform="$(PLATFORM_IOS_10)"
+			-destination platform="iOS Simulator,name=iPhone 8,OS=10"
