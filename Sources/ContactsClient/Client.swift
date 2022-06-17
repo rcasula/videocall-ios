@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import SharedModels
+
+public protocol ContactsClient {
+
+    func getContacts(_ completion: @escaping (Result<[Contact], Error>) -> Void)
+}

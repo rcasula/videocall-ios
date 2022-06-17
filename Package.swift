@@ -26,11 +26,16 @@ let package = Package(
     targets: [
         .target(
             name: "ContactsClient",
-            dependencies: []
+            dependencies: [
+                "SharedModels"
+            ]
         ),
         .target(
             name: "ContactsFeature",
-            dependencies: []
+            dependencies: [
+                "ContactsClient",
+                "SharedModels"
+            ]
         ),
         .target(
             name: "SharedModels",

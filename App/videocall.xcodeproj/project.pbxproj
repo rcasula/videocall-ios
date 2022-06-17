@@ -9,20 +9,27 @@
 /* Begin PBXBuildFile section */
 		0F7AEA6C2858BE9E00651D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7AEA6B2858BE9E00651D47 /* AppDelegate.swift */; };
 		0F7AEA702858BE9E00651D47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7AEA6F2858BE9E00651D47 /* ViewController.swift */; };
-		0F7AEA732858BE9E00651D47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F7AEA712858BE9E00651D47 /* Main.storyboard */; };
 		0F7AEA752858BEA000651D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F7AEA742858BEA000651D47 /* Assets.xcassets */; };
 		0F7AEA782858BEA000651D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F7AEA762858BEA000651D47 /* LaunchScreen.storyboard */; };
+		0FF73D772859A8B4006C4DF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF73D762859A8B4006C4DF8 /* AppDelegate.swift */; };
+		0FF73D802859A8B6006C4DF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF73D7F2859A8B6006C4DF8 /* Assets.xcassets */; };
+		0FF73D832859A8B6006C4DF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF73D812859A8B6006C4DF8 /* LaunchScreen.storyboard */; };
+		0FF73D8A2859AA52006C4DF8 /* ContactsFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 0FF73D892859AA52006C4DF8 /* ContactsFeature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F7AEA682858BE9E00651D47 /* videocall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = videocall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F7AEA6B2858BE9E00651D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F7AEA6F2858BE9E00651D47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0F7AEA722858BE9E00651D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F7AEA742858BEA000651D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F7AEA772858BEA000651D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F7AEA792858BEA000651D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0FF73D6E2858CFD3006C4DF8 /* videocall-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "videocall-ios"; path = ../..; sourceTree = "<group>"; };
+		0FC6CFA42859AF2F00A724DD /* videocall-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "videocall-ios"; path = ..; sourceTree = "<group>"; };
+		0FF73D742859A8B4006C4DF8 /* ContactsPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FF73D762859A8B4006C4DF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0FF73D7F2859A8B6006C4DF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0FF73D822859A8B6006C4DF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0FF73D842859A8B6006C4DF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,15 +40,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FF73D712859A8B4006C4DF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FF73D8A2859AA52006C4DF8 /* ContactsFeature in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		0F7AEA5F2858BE9E00651D47 = {
 			isa = PBXGroup;
 			children = (
-				0FF73D6E2858CFD3006C4DF8 /* videocall-ios */,
+				0FC6CFA42859AF2F00A724DD /* videocall-ios */,
 				0F7AEA6A2858BE9E00651D47 /* iOS */,
+				0FF73D6F2859A894006C4DF8 /* Previews */,
 				0F7AEA692858BE9E00651D47 /* Products */,
+				0FF73D882859AA52006C4DF8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				0F7AEA682858BE9E00651D47 /* videocall.app */,
+				0FF73D742859A8B4006C4DF8 /* ContactsPreview.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,7 +76,6 @@
 			children = (
 				0F7AEA6B2858BE9E00651D47 /* AppDelegate.swift */,
 				0F7AEA6F2858BE9E00651D47 /* ViewController.swift */,
-				0F7AEA712858BE9E00651D47 /* Main.storyboard */,
 				0FF73D6D2858C834006C4DF8 /* Supporting Files */,
 			);
 			path = iOS;
@@ -72,6 +89,32 @@
 				0F7AEA792858BEA000651D47 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0FF73D6F2859A894006C4DF8 /* Previews */ = {
+			isa = PBXGroup;
+			children = (
+				0FF73D752859A8B4006C4DF8 /* ContactsPreview */,
+			);
+			path = Previews;
+			sourceTree = "<group>";
+		};
+		0FF73D752859A8B4006C4DF8 /* ContactsPreview */ = {
+			isa = PBXGroup;
+			children = (
+				0FF73D762859A8B4006C4DF8 /* AppDelegate.swift */,
+				0FF73D7F2859A8B6006C4DF8 /* Assets.xcassets */,
+				0FF73D812859A8B6006C4DF8 /* LaunchScreen.storyboard */,
+				0FF73D842859A8B6006C4DF8 /* Info.plist */,
+			);
+			path = ContactsPreview;
+			sourceTree = "<group>";
+		};
+		0FF73D882859AA52006C4DF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +137,26 @@
 			productReference = 0F7AEA682858BE9E00651D47 /* videocall.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0FF73D732859A8B4006C4DF8 /* ContactsPreview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FF73D852859A8B6006C4DF8 /* Build configuration list for PBXNativeTarget "ContactsPreview" */;
+			buildPhases = (
+				0FF73D702859A8B4006C4DF8 /* Sources */,
+				0FF73D712859A8B4006C4DF8 /* Frameworks */,
+				0FF73D722859A8B4006C4DF8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ContactsPreview;
+			packageProductDependencies = (
+				0FF73D892859AA52006C4DF8 /* ContactsFeature */,
+			);
+			productName = ContactsPreview;
+			productReference = 0FF73D742859A8B4006C4DF8 /* ContactsPreview.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -105,6 +168,9 @@
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					0F7AEA672858BE9E00651D47 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					0FF73D732859A8B4006C4DF8 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
@@ -123,6 +189,7 @@
 			projectRoot = "";
 			targets = (
 				0F7AEA672858BE9E00651D47 /* videocall */,
+				0FF73D732859A8B4006C4DF8 /* ContactsPreview */,
 			);
 		};
 /* End PBXProject section */
@@ -134,7 +201,15 @@
 			files = (
 				0F7AEA782858BEA000651D47 /* LaunchScreen.storyboard in Resources */,
 				0F7AEA752858BEA000651D47 /* Assets.xcassets in Resources */,
-				0F7AEA732858BE9E00651D47 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FF73D722859A8B4006C4DF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FF73D832859A8B6006C4DF8 /* LaunchScreen.storyboard in Resources */,
+				0FF73D802859A8B6006C4DF8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,21 +225,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FF73D702859A8B4006C4DF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FF73D772859A8B4006C4DF8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0F7AEA712858BE9E00651D47 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0F7AEA722858BE9E00651D47 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0F7AEA762858BEA000651D47 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0F7AEA772858BEA000651D47 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0FF73D812859A8B6006C4DF8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0FF73D822859A8B6006C4DF8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -342,6 +425,60 @@
 			};
 			name = Release;
 		};
+		0FF73D862859A8B6006C4DF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Previews/ContactsPreview/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.casula.ContactsPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0FF73D872859A8B6006C4DF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Previews/ContactsPreview/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.casula.ContactsPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -363,7 +500,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		0FF73D852859A8B6006C4DF8 /* Build configuration list for PBXNativeTarget "ContactsPreview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FF73D862859A8B6006C4DF8 /* Debug */,
+				0FF73D872859A8B6006C4DF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0FF73D892859AA52006C4DF8 /* ContactsFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ContactsFeature;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0F7AEA602858BE9E00651D47 /* Project object */;
 }

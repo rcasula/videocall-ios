@@ -6,30 +6,49 @@
 //
 
 import XCTest
+import SharedModels
+@testable import ContactsClient
 
 class ContactsClientTests: XCTestCase {
 
+    let contacts: [Contact] = [
+        .init(
+            name: "Katherine",
+            surname: "Wells",
+            avatarUrl: URL(string: "https://example.com")!
+        ),
+        .init(
+            name: "James",
+            surname: "Baldwin",
+            avatarUrl: URL(string: "https://example.com")!
+        ),
+        .init(
+            name: "Shane",
+            surname: "Brown",
+            avatarUrl: URL(string: "https://example.com")!
+        )
+    ]
+
+    var client: ContactsClient?
+
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        client = MockContactsClient(contacts: contacts)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    func testGetContacts() throws {
+        let expectation = XCTestExpectation(description: "Get contacts")
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        client?.getContacts { result in
+            switch result {
+            case .success(let contacts):
+                XCTAssertEqual(contacts, self.contacts)
+                expectation.fulfill()
+            case .failure:
+                break
+            }
         }
+
+        wait(for: [expectation], timeout: 0.5)
     }
 
 }
