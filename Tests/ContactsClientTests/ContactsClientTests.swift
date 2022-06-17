@@ -1,12 +1,13 @@
 //
 //  ContactsClientTests.swift
-//  
+//
 //
 //  Created by Roberto Casula on 15/06/22.
 //
 
-import XCTest
 import SharedModels
+import XCTest
+
 @testable import ContactsClient
 
 class ContactsClientTests: XCTestCase {
@@ -26,7 +27,7 @@ class ContactsClientTests: XCTestCase {
             name: "Shane",
             surname: "Brown",
             avatarUrl: URL(string: "https://example.com")!
-        )
+        ),
     ]
 
     var client: ContactsClient?

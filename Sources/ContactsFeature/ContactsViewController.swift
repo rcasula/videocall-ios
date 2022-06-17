@@ -1,6 +1,6 @@
 //
 //  ContactsViewController.swift
-//  
+//
 //
 //  Created by Roberto Casula on 15/06/22.
 //
@@ -14,7 +14,6 @@ class ContactsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation

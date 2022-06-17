@@ -20,7 +20,7 @@ let package = Package(
         .library(
             name: "SharedModels",
             targets: ["SharedModels"]
-        )
+        ),
     ],
     dependencies: [],
     targets: [
@@ -34,7 +34,7 @@ let package = Package(
             name: "ContactsFeature",
             dependencies: [
                 "ContactsClient",
-                "SharedModels"
+                "SharedModels",
             ]
         ),
         .target(
