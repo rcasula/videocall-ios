@@ -31,6 +31,14 @@ public struct MockContactsClient: ContactsClient {
             completion(.success(contacts))
         }
     }
+
+    public func add(contact: Contact) {
+        self.contacts.append(contact)
+    }
+
+    public func remove(contact: Contact) {
+        self.contacts.removeAll(where: { $0 == contact })
+    }
 }
 
 extension MockContactsClient {

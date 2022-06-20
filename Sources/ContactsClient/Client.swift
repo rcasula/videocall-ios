@@ -11,4 +11,7 @@ import SharedModels
 public protocol ContactsClient {
 
     func getContacts(_ completion: @escaping (Result<[Contact], Error>) -> Void)
+
+    func add(contact: Contact)
+    func remove(contact: Contact)
 }
