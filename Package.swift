@@ -10,6 +10,26 @@ let package = Package(
     ],
     products: [
         .library(
+            name: "PersistenceClient",
+            targets: ["PersistenceClient"]
+        ),
+        .library(
+            name: "KeychainClient",
+            targets: ["KeychainClient"]
+        ),
+        .library(
+            name: "KeychainClientLive",
+            targets: ["KeychainClientLive"]
+        ),
+        .library(
+            name: "ApiClient",
+            targets: ["ApiClient"]
+        ),
+        .library(
+            name: "AuthClient",
+            targets: ["AuthClient"]
+        ),
+        .library(
             name: "ContactsClient",
             targets: ["ContactsClient"]
         ),
@@ -24,6 +44,32 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
+        .target(
+            name: "PersistenceClient",
+            dependencies: []
+        ),
+        .target(
+            name: "KeychainClient",
+            dependencies: []
+        ),
+        .target(
+            name: "KeychainClientLive",
+            dependencies: [
+                "KeychainClient"
+            ]
+        ),
+        .target(
+            name: "ApiClient",
+            dependencies: []
+        ),
+        .target(
+            name: "AuthClient",
+            dependencies: [
+                "ApiClient",
+                "KeychainClient",
+                "PersistenceClient"
+            ]
+        ),
         .target(
             name: "ContactsClient",
             dependencies: [
@@ -44,6 +90,10 @@ let package = Package(
         .testTarget(
             name: "ContactsClientTests",
             dependencies: ["ContactsClient"]
+        ),
+        .testTarget(
+            name: "AuthClientTests",
+            dependencies: ["AuthClient"]
         ),
     ]
 )
