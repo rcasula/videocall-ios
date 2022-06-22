@@ -32,10 +32,33 @@ public class LoginController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         _view.loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
+        _view.usernameField.delegate = self
+        _view.passwordField.delegate = self
+        _view.usernameField.addTarget(
+            self,
+            action: #selector(textFieldDidChange(_:)),
+            for: .editingChanged
+        )
+        _view.passwordField.addTarget(
+            self,
+            action: #selector(textFieldDidChange(_:)),
+            for: .editingChanged
+        )
+        updateButtonState()
     }
 
+    private func updateButtonState() {
+        guard let username = _view.usernameField.text,
+              let password = _view.passwordField.text
+        else { return }
+        _view.loginButton.isEnabled = !username.isEmpty && !password.isEmpty
+    }
 
     @IBAction func loginButtonTapped(_ sender: Any) {
+        login()
+    }
+
+    private func login() {
         guard let username = _view.usernameField.text,
               !username.isEmpty,
               let password = _view.passwordField.text,
@@ -64,5 +87,18 @@ public class LoginController: UIViewController {
         let okAction = UIAlertAction(title: "Ok", style: .default)
         alertController.addAction(okAction)
         self.present(alertController, animated: true)
+    }
+}
+
+extension LoginController: UITextFieldDelegate {
+
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        login()
+        return true
+    }
+
+    @IBAction func textFieldDidChange(_ textField: UITextField) {
+        updateButtonState()
     }
 }
