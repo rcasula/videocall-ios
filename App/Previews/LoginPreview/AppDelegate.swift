@@ -7,6 +7,9 @@
 
 import UIKit
 import AuthClient
+import ApiClient
+import LoginFeature
+import PersistenceClient
 import KeychainClientLive
 
 @main
@@ -16,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let authClient = AuthClient(
-            apiClient: MockApiClient(),
+            apiClient: MockApiClient(enabledUsers: ["jshier": "test"], enableDelay: true),
             keychainClient: KeychainClientLive(),
             persistenceClient: PersistenceClient()
         )
