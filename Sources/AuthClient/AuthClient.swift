@@ -11,7 +11,14 @@ import Foundation
 import KeychainClient
 import PersistenceClient
 
+public protocol AuthClientDelegate: AnyObject {
+    func didLogin()
+    func didLogout()
+}
+
 public protocol AuthClientProtocol {
+
+    var delegate: AuthClientDelegate? { get set }
 
     init(
         apiClient: ApiClient,
@@ -26,14 +33,16 @@ public protocol AuthClientProtocol {
     func getSavedCredentials() -> (username: String, password: String)?
 }
 
-public struct AuthClient: AuthClientProtocol {
+public class AuthClient: AuthClientProtocol {
 
     private let apiClient: ApiClient
     private let keychainClient: KeychainClient
     private let persistenceClient: PersistenceClient
     private let rememberCredentials: Bool
 
-    public init(
+    public weak var delegate: AuthClientDelegate?
+
+    required public init(
         apiClient: ApiClient,
         keychainClient: KeychainClient,
         persistenceClient: PersistenceClient,
@@ -53,9 +62,10 @@ public struct AuthClient: AuthClientProtocol {
         apiClient.login(
             username: username,
             password: password
-        ) { result in
+        ) { [weak self] result in
             do {
-                try saveCredentials(username: username, password: password)
+                try self?.saveCredentials(username: username, password: password)
+                self?.delegate?.didLogin()
             } catch let error {
                 debugPrint(error)
             }
@@ -68,6 +78,7 @@ public struct AuthClient: AuthClientProtocol {
         else { return }
         try keychainClient.deleteCredentials(for: username)
         persistenceClient.deleteUsername()
+        delegate?.didLogout()
     }
 
     public func getSavedCredentials() -> (username: String, password: String)? {
@@ -77,6 +88,7 @@ public struct AuthClient: AuthClientProtocol {
     }
 
     private func saveCredentials(username: String, password: String) throws {
+        guard rememberCredentials else { return }
         persistenceClient.save(username: username)
         try keychainClient.saveCredentials(username: username, password: password)
     }
