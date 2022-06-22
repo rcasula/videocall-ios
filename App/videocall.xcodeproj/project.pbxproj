@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F574BDD2861846F001617F6 /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 0F574BDC2861846F001617F6 /* AppFeature */; };
+		0F574BDF2862E051001617F6 /* KeychainClientLive in Frameworks */ = {isa = PBXBuildFile; productRef = 0F574BDE2862E051001617F6 /* KeychainClientLive */; };
 		0F7AEA6C2858BE9E00651D47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7AEA6B2858BE9E00651D47 /* AppDelegate.swift */; };
-		0F7AEA702858BE9E00651D47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7AEA6F2858BE9E00651D47 /* ViewController.swift */; };
 		0F7AEA752858BEA000651D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F7AEA742858BEA000651D47 /* Assets.xcassets */; };
 		0F7AEA782858BEA000651D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F7AEA762858BEA000651D47 /* LaunchScreen.storyboard */; };
-		0FAD0D3C285F09360031A44C /* AuthClient in Frameworks */ = {isa = PBXBuildFile; productRef = 0FAD0D3B285F09360031A44C /* AuthClient */; };
 		0FAD0D44285F4AE30031A44C /* KeychainClientLiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD0D43285F4AE30031A44C /* KeychainClientLiveTests.swift */; };
 		0FAD0D4B285F4BEA0031A44C /* KeychainClientLive in Frameworks */ = {isa = PBXBuildFile; productRef = 0FAD0D4A285F4BEA0031A44C /* KeychainClientLive */; };
+		0FAD0D5328603CBC0031A44C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAD0D5228603CBC0031A44C /* AppDelegate.swift */; };
+		0FAD0D5C28603CBE0031A44C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FAD0D5B28603CBE0031A44C /* Assets.xcassets */; };
+		0FAD0D5F28603CBF0031A44C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FAD0D5D28603CBF0031A44C /* LaunchScreen.storyboard */; };
+		0FAD0D6528603D1C0031A44C /* LoginFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 0FAD0D6428603D1C0031A44C /* LoginFeature */; };
 		0FF73D772859A8B4006C4DF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF73D762859A8B4006C4DF8 /* AppDelegate.swift */; };
 		0FF73D802859A8B6006C4DF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF73D7F2859A8B6006C4DF8 /* Assets.xcassets */; };
 		0FF73D832859A8B6006C4DF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF73D812859A8B6006C4DF8 /* LaunchScreen.storyboard */; };
@@ -33,12 +37,16 @@
 /* Begin PBXFileReference section */
 		0F7AEA682858BE9E00651D47 /* videocall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = videocall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F7AEA6B2858BE9E00651D47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0F7AEA6F2858BE9E00651D47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0F7AEA742858BEA000651D47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F7AEA772858BEA000651D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F7AEA792858BEA000651D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FAD0D41285F4AE30031A44C /* KeychainClientLiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeychainClientLiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FAD0D43285F4AE30031A44C /* KeychainClientLiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainClientLiveTests.swift; sourceTree = "<group>"; };
+		0FAD0D5028603CBC0031A44C /* LoginPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FAD0D5228603CBC0031A44C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0FAD0D5B28603CBE0031A44C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0FAD0D5E28603CBF0031A44C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0FAD0D6028603CBF0031A44C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FC6CFA42859AF2F00A724DD /* videocall-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "videocall-ios"; path = ..; sourceTree = "<group>"; };
 		0FF73D742859A8B4006C4DF8 /* ContactsPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF73D762859A8B4006C4DF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FAD0D3C285F09360031A44C /* AuthClient in Frameworks */,
+				0F574BDD2861846F001617F6 /* AppFeature in Frameworks */,
 				0FAD0D4B285F4BEA0031A44C /* KeychainClientLive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +69,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FAD0D4D28603CBC0031A44C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FAD0D6528603D1C0031A44C /* LoginFeature in Frameworks */,
+				0F574BDF2862E051001617F6 /* KeychainClientLive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +110,7 @@
 				0F7AEA682858BE9E00651D47 /* videocall.app */,
 				0FF73D742859A8B4006C4DF8 /* ContactsPreview.app */,
 				0FAD0D41285F4AE30031A44C /* KeychainClientLiveTests.xctest */,
+				0FAD0D5028603CBC0031A44C /* LoginPreview.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				0F7AEA6B2858BE9E00651D47 /* AppDelegate.swift */,
-				0F7AEA6F2858BE9E00651D47 /* ViewController.swift */,
 				0FF73D6D2858C834006C4DF8 /* Supporting Files */,
 			);
 			path = iOS;
@@ -113,6 +130,17 @@
 				0FAD0D43285F4AE30031A44C /* KeychainClientLiveTests.swift */,
 			);
 			path = KeychainClientLiveTests;
+			sourceTree = "<group>";
+		};
+		0FAD0D5128603CBC0031A44C /* LoginPreview */ = {
+			isa = PBXGroup;
+			children = (
+				0FAD0D5228603CBC0031A44C /* AppDelegate.swift */,
+				0FAD0D5B28603CBE0031A44C /* Assets.xcassets */,
+				0FAD0D5D28603CBF0031A44C /* LaunchScreen.storyboard */,
+				0FAD0D6028603CBF0031A44C /* Info.plist */,
+			);
+			path = LoginPreview;
 			sourceTree = "<group>";
 		};
 		0FF73D6D2858C834006C4DF8 /* Supporting Files */ = {
@@ -128,6 +156,7 @@
 		0FF73D6F2859A894006C4DF8 /* Previews */ = {
 			isa = PBXGroup;
 			children = (
+				0FAD0D5128603CBC0031A44C /* LoginPreview */,
 				0FF73D752859A8B4006C4DF8 /* ContactsPreview */,
 			);
 			path = Previews;
@@ -168,8 +197,8 @@
 			);
 			name = videocall;
 			packageProductDependencies = (
-				0FAD0D3B285F09360031A44C /* AuthClient */,
 				0FAD0D4A285F4BEA0031A44C /* KeychainClientLive */,
+				0F574BDC2861846F001617F6 /* AppFeature */,
 			);
 			productName = videocall;
 			productReference = 0F7AEA682858BE9E00651D47 /* videocall.app */;
@@ -192,6 +221,27 @@
 			productName = KeychainClientLiveTests;
 			productReference = 0FAD0D41285F4AE30031A44C /* KeychainClientLiveTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0FAD0D4F28603CBC0031A44C /* LoginPreview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FAD0D6128603CBF0031A44C /* Build configuration list for PBXNativeTarget "LoginPreview" */;
+			buildPhases = (
+				0FAD0D4C28603CBC0031A44C /* Sources */,
+				0FAD0D4D28603CBC0031A44C /* Frameworks */,
+				0FAD0D4E28603CBC0031A44C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LoginPreview;
+			packageProductDependencies = (
+				0FAD0D6428603D1C0031A44C /* LoginFeature */,
+				0F574BDE2862E051001617F6 /* KeychainClientLive */,
+			);
+			productName = LoginPreview;
+			productReference = 0FAD0D5028603CBC0031A44C /* LoginPreview.app */;
+			productType = "com.apple.product-type.application";
 		};
 		0FF73D732859A8B4006C4DF8 /* ContactsPreview */ = {
 			isa = PBXNativeTarget;
@@ -230,6 +280,9 @@
 						CreatedOnToolsVersion = 13.4.1;
 						TestTargetID = 0F7AEA672858BE9E00651D47;
 					};
+					0FAD0D4F28603CBC0031A44C = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
 					0FF73D732859A8B4006C4DF8 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
@@ -250,6 +303,7 @@
 			targets = (
 				0F7AEA672858BE9E00651D47 /* videocall */,
 				0FF73D732859A8B4006C4DF8 /* ContactsPreview */,
+				0FAD0D4F28603CBC0031A44C /* LoginPreview */,
 				0FAD0D40285F4AE30031A44C /* KeychainClientLiveTests */,
 			);
 		};
@@ -272,6 +326,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0FAD0D4E28603CBC0031A44C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FAD0D5F28603CBF0031A44C /* LaunchScreen.storyboard in Resources */,
+				0FAD0D5C28603CBE0031A44C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0FF73D722859A8B4006C4DF8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -288,7 +351,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F7AEA702858BE9E00651D47 /* ViewController.swift in Sources */,
 				0F7AEA6C2858BE9E00651D47 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +360,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FAD0D44285F4AE30031A44C /* KeychainClientLiveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0FAD0D4C28603CBC0031A44C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FAD0D5328603CBC0031A44C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +394,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				0F7AEA772858BEA000651D47 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0FAD0D5D28603CBF0031A44C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0FAD0D5E28603CBF0031A44C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -541,6 +619,58 @@
 			};
 			name = Release;
 		};
+		0FAD0D6228603CBF0031A44C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Previews/LoginPreview/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.casula.LoginPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0FAD0D6328603CBF0031A44C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Previews/LoginPreview/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.casula.LoginPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		0FF73D862859A8B6006C4DF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -623,6 +753,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		0FAD0D6128603CBF0031A44C /* Build configuration list for PBXNativeTarget "LoginPreview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FAD0D6228603CBF0031A44C /* Debug */,
+				0FAD0D6328603CBF0031A44C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0FF73D852859A8B6006C4DF8 /* Build configuration list for PBXNativeTarget "ContactsPreview" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -635,13 +774,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0FAD0D3B285F09360031A44C /* AuthClient */ = {
+		0F574BDC2861846F001617F6 /* AppFeature */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = AuthClient;
+			productName = AppFeature;
+		};
+		0F574BDE2862E051001617F6 /* KeychainClientLive */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KeychainClientLive;
 		};
 		0FAD0D4A285F4BEA0031A44C /* KeychainClientLive */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = KeychainClientLive;
+		};
+		0FAD0D6428603D1C0031A44C /* LoginFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LoginFeature;
 		};
 		0FF73D892859AA52006C4DF8 /* ContactsFeature */ = {
 			isa = XCSwiftPackageProductDependency;
