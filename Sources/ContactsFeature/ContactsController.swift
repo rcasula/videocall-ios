@@ -8,6 +8,8 @@
 import UIKit
 import ContactsClient
 import AuthClient
+import SharedModels
+import SharedExtensions
 
 public class ContactsController: UIViewController {
 
@@ -15,6 +17,8 @@ public class ContactsController: UIViewController {
     private let contactsClient: ContactsClient
 
     private lazy var _view: ContactsView = { .init() }()
+
+    private var contacts: [Contact] = []
 
     public override func loadView() {
         view = _view
@@ -35,10 +39,10 @@ public class ContactsController: UIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = "Contacts"
-
         setupBarButtonItems()
+        setupTableView()
+        loadContacts()
     }
 
     private func setupBarButtonItems() {
@@ -54,6 +58,46 @@ public class ContactsController: UIViewController {
             target: self,
             action: #selector(didTapLogout(sender:))
         )
+    }
+
+    private func setupTableView() {
+        _view.tableView.registerCell(type: ContactCell.self)
+        _view.tableView.dataSource = self
+    }
+
+    private func loadContacts() {
+        contactsClient.getContacts { [weak self] result in
+            switch result {
+            case .success(let contacts):
+                self?.contacts = contacts
+                DispatchQueue.main.async { [weak self] in
+                    self?._view.tableView.reloadData()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async { [weak self] in
+                    self?.showError(error: error)
+                }
+            }
+        }
+    }
+}
+
+extension ContactsController: UITableViewDataSource {
+
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contacts.count
+    }
+
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueCell(withType: ContactCell.self, for: indexPath),
+              let contact = contacts[safe: indexPath.row]
+        else { return .init() }
+        cell.configure(with: contact)
+        return cell
     }
 }
 
