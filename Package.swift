@@ -116,6 +116,7 @@ let package = Package(
                 "AuthClient",
                 "ContactsClient",
                 "SharedModels",
+                "SharedExtensions",
             ]
         ),
         .target(
