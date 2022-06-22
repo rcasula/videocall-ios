@@ -10,6 +10,14 @@ let package = Package(
     ],
     products: [
         .library(
+            name: "AppFeature",
+            targets: ["AppFeature"]
+        ),
+        .library(
+            name: "LoginFeature",
+            targets: ["LoginFeature"]
+        ),
+        .library(
             name: "PersistenceClient",
             targets: ["PersistenceClient"]
         ),
@@ -41,9 +49,35 @@ let package = Package(
             name: "SharedModels",
             targets: ["SharedModels"]
         ),
+        .library(
+            name: "SharedExtensions",
+            targets: ["SharedExtensions"]
+        ),
+        .library(
+            name: "SharedViews",
+            targets: ["SharedViews"]
+        ),
     ],
     dependencies: [],
     targets: [
+        .target(
+            name: "AppFeature",
+            dependencies: [
+                "AuthClient",
+                "LoginFeature",
+                "ContactsClient",
+                "ContactsFeature",
+                "SharedExtensions"
+            ]
+        ),
+        .target(
+            name: "LoginFeature",
+            dependencies: [
+                "AuthClient",
+                "SharedExtensions",
+                "SharedViews"
+            ]
+        ),
         .target(
             name: "PersistenceClient",
             dependencies: []
@@ -79,12 +113,21 @@ let package = Package(
         .target(
             name: "ContactsFeature",
             dependencies: [
+                "AuthClient",
                 "ContactsClient",
                 "SharedModels",
             ]
         ),
         .target(
             name: "SharedModels",
+            dependencies: []
+        ),
+        .target(
+            name: "SharedExtensions",
+            dependencies: []
+        ),
+        .target(
+            name: "SharedViews",
             dependencies: []
         ),
         .testTarget(
