@@ -41,11 +41,13 @@ public class LoginController: UIViewController {
               let password = _view.passwordField.text,
               !password.isEmpty
         else { return }
+        _view.loginButton.startLoading()
         authClient.login(
             username: username,
             password: password
         ) { [weak self] result in
             debugPrint(result)
+            self?._view.loginButton.stopLoading()
             switch result {
             case .success:
                 break

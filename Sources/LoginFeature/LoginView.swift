@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 import SharedExtensions
+import SharedViews
 
 class LoginView: UIView {
 
@@ -50,8 +51,8 @@ class LoginView: UIView {
     }()
 
     @UsesAutoLayout
-    var loginButton: UIButton = {
-        let view = UIButton(type: .system)
+    var loginButton: LoadingButton = {
+        let view = LoadingButton(type: .system)
         view.setTitle("Login", for: .normal)
         view.backgroundColor = .systemBlue
         view.tintColor = .white
