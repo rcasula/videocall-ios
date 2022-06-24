@@ -66,7 +66,7 @@ class ContactsClientTests: XCTestCase {
         client?.getContacts { result in
             switch result {
             case .success(let contacts):
-                XCTAssertEqual(contacts, self.contacts)
+                XCTAssertEqual(contacts, self.contacts + [newContact])
                 expectation.fulfill()
             case .failure:
                 XCTFail("Get contacts failed")
@@ -86,7 +86,9 @@ class ContactsClientTests: XCTestCase {
         client?.getContacts { result in
             switch result {
             case .success(let contacts):
-                XCTAssertEqual(contacts, self.contacts)
+                var allContacts = self.contacts
+                allContacts.removeFirst()
+                XCTAssertEqual(contacts, allContacts)
                 expectation.fulfill()
             case .failure:
                 XCTFail("Get contacts failed")
