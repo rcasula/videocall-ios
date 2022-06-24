@@ -8,9 +8,9 @@
 import Foundation
 import SharedModels
 
-public struct MockContactsClient: ContactsClient {
+public class MockContactsClient: ContactsClient {
 
-    private let contacts: [Contact]
+    private var contacts: [Contact]
     private let enableDelay: Bool
 
     public init(
@@ -24,12 +24,20 @@ public struct MockContactsClient: ContactsClient {
     public func getContacts(_ completion: @escaping (Result<[Contact], Error>) -> Void) {
         if enableDelay {
             let randomSeconds = Double.random(in: 1.0...3.5)
-            DispatchQueue.main.asyncAfter(deadline: .now() + randomSeconds) {
-                completion(.success(contacts))
+            DispatchQueue.main.asyncAfter(deadline: .now() + randomSeconds) { [weak self] in
+                completion(.success(self?.contacts ?? []))
             }
         } else {
             completion(.success(contacts))
         }
+    }
+
+    public func add(contact: Contact) {
+        self.contacts.append(contact)
+    }
+
+    public func remove(contact: Contact) {
+        self.contacts.removeAll(where: { $0 == contact })
     }
 }
 

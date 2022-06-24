@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0F7AEA672858BE9E00651D47"
-               BuildableName = "videocall.app"
-               BlueprintName = "videocall"
-               ReferencedContainer = "container:videocall.xcodeproj">
+               BlueprintIdentifier = "AuthClient"
+               BuildableName = "AuthClient"
+               BlueprintName = "AuthClient"
+               ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,30 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ContactsClientTests"
-               BuildableName = "ContactsClientTests"
-               BlueprintName = "ContactsClientTests"
-               ReferencedContainer = "container:..">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0FAD0D40285F4AE30031A44C"
-               BuildableName = "KeychainClientLiveTests.xctest"
-               BlueprintName = "KeychainClientLiveTests"
-               ReferencedContainer = "container:videocall.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "AuthClientTests"
                BuildableName = "AuthClientTests"
                BlueprintName = "AuthClientTests"
-               ReferencedContainer = "container:..">
+               ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -70,16 +50,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0F7AEA672858BE9E00651D47"
-            BuildableName = "videocall.app"
-            BlueprintName = "videocall"
-            ReferencedContainer = "container:videocall.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -87,16 +57,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0F7AEA672858BE9E00651D47"
-            BuildableName = "videocall.app"
-            BlueprintName = "videocall"
-            ReferencedContainer = "container:videocall.xcodeproj">
+            BlueprintIdentifier = "AuthClient"
+            BuildableName = "AuthClient"
+            BlueprintName = "AuthClient"
+            ReferencedContainer = "container:">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

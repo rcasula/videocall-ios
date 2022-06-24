@@ -10,6 +10,34 @@ let package = Package(
     ],
     products: [
         .library(
+            name: "AppFeature",
+            targets: ["AppFeature"]
+        ),
+        .library(
+            name: "LoginFeature",
+            targets: ["LoginFeature"]
+        ),
+        .library(
+            name: "PersistenceClient",
+            targets: ["PersistenceClient"]
+        ),
+        .library(
+            name: "KeychainClient",
+            targets: ["KeychainClient"]
+        ),
+        .library(
+            name: "KeychainClientLive",
+            targets: ["KeychainClientLive"]
+        ),
+        .library(
+            name: "ApiClient",
+            targets: ["ApiClient"]
+        ),
+        .library(
+            name: "AuthClient",
+            targets: ["AuthClient"]
+        ),
+        .library(
             name: "ContactsClient",
             targets: ["ContactsClient"]
         ),
@@ -21,9 +49,61 @@ let package = Package(
             name: "SharedModels",
             targets: ["SharedModels"]
         ),
+        .library(
+            name: "SharedExtensions",
+            targets: ["SharedExtensions"]
+        ),
+        .library(
+            name: "SharedViews",
+            targets: ["SharedViews"]
+        ),
     ],
     dependencies: [],
     targets: [
+        .target(
+            name: "AppFeature",
+            dependencies: [
+                "AuthClient",
+                "LoginFeature",
+                "ContactsClient",
+                "ContactsFeature",
+                "SharedExtensions"
+            ]
+        ),
+        .target(
+            name: "LoginFeature",
+            dependencies: [
+                "AuthClient",
+                "SharedExtensions",
+                "SharedViews"
+            ]
+        ),
+        .target(
+            name: "PersistenceClient",
+            dependencies: []
+        ),
+        .target(
+            name: "KeychainClient",
+            dependencies: []
+        ),
+        .target(
+            name: "KeychainClientLive",
+            dependencies: [
+                "KeychainClient"
+            ]
+        ),
+        .target(
+            name: "ApiClient",
+            dependencies: []
+        ),
+        .target(
+            name: "AuthClient",
+            dependencies: [
+                "ApiClient",
+                "KeychainClient",
+                "PersistenceClient"
+            ]
+        ),
         .target(
             name: "ContactsClient",
             dependencies: [
@@ -33,17 +113,31 @@ let package = Package(
         .target(
             name: "ContactsFeature",
             dependencies: [
+                "AuthClient",
                 "ContactsClient",
                 "SharedModels",
+                "SharedExtensions",
             ]
         ),
         .target(
             name: "SharedModels",
             dependencies: []
         ),
+        .target(
+            name: "SharedExtensions",
+            dependencies: []
+        ),
+        .target(
+            name: "SharedViews",
+            dependencies: []
+        ),
         .testTarget(
             name: "ContactsClientTests",
             dependencies: ["ContactsClient"]
+        ),
+        .testTarget(
+            name: "AuthClientTests",
+            dependencies: ["AuthClient"]
         ),
     ]
 )
