@@ -11,6 +11,10 @@ import SharedExtensions
 import SharedModels
 import UIKit
 
+public protocol ContactsControllerDelegate: AnyObject {
+    func contactsController(_ controller: ContactsController, startConversationWith contacts: [Contact])
+}
+
 public class ContactsController: UIViewController {
 
     private let authClient: AuthClientProtocol
@@ -19,6 +23,8 @@ public class ContactsController: UIViewController {
     private lazy var _view: ContactsView = { .init() }()
 
     private var contacts: [Contact] = []
+
+    public weak var delegate: ContactsControllerDelegate?
 
     public override func loadView() {
         view = _view
