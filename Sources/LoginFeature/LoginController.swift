@@ -1,12 +1,12 @@
 //
 //  LoginController.swift
-//  
+//
 //
 //  Created by Roberto Casula on 20/06/22.
 //
 
-import UIKit
 import AuthClient
+import UIKit
 
 public class LoginController: UIViewController {
 
@@ -31,7 +31,8 @@ public class LoginController: UIViewController {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        _view.loginButton.addTarget(self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
+        _view.loginButton.addTarget(
+            self, action: #selector(loginButtonTapped(_:)), for: .touchUpInside)
         _view.usernameField.delegate = self
         _view.passwordField.delegate = self
         _view.usernameField.addTarget(
@@ -49,7 +50,7 @@ public class LoginController: UIViewController {
 
     private func updateButtonState() {
         guard let username = _view.usernameField.text,
-              let password = _view.passwordField.text
+            let password = _view.passwordField.text
         else { return }
         _view.loginButton.isEnabled = !username.isEmpty && !password.isEmpty
     }
@@ -60,9 +61,9 @@ public class LoginController: UIViewController {
 
     private func login() {
         guard let username = _view.usernameField.text,
-              !username.isEmpty,
-              let password = _view.passwordField.text,
-              !password.isEmpty
+            !username.isEmpty,
+            let password = _view.passwordField.text,
+            !password.isEmpty
         else { return }
         _view.loginButton.startLoading()
         authClient.login(

@@ -1,15 +1,15 @@
 //
 //  AuthClient.swift
-//  
+//
 //
 //  Created by Roberto Casula on 16/06/22.
 //
 
-import Security
 import ApiClient
 import Foundation
 import KeychainClient
 import PersistenceClient
+import Security
 
 public protocol AuthClientDelegate: AnyObject {
     func didLogin()
@@ -27,7 +27,8 @@ public protocol AuthClientProtocol {
         rememberCredentials: Bool
     )
 
-    func login(username: String, password: String, completion: @escaping (Result<Void, ApiError>) -> Void)
+    func login(
+        username: String, password: String, completion: @escaping (Result<Void, ApiError>) -> Void)
     func logout() throws
 
     func getSavedCredentials() -> (username: String, password: String)?

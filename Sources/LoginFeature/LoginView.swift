@@ -1,14 +1,14 @@
 //
 //  LoginView.swift
-//  
+//
 //
 //  Created by Roberto Casula on 20/06/22.
 //
 
-import UIKit
 import Foundation
 import SharedExtensions
 import SharedViews
+import UIKit
 
 class LoginView: UIView {
 
@@ -29,7 +29,6 @@ class LoginView: UIView {
         view.spacing = 16
         return view
     }()
-
 
     @UsesAutoLayout
     var usernameField: UITextField = {
@@ -89,7 +88,7 @@ class LoginView: UIView {
             stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             fieldsStackView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
             usernameField.widthAnchor.constraint(equalTo: fieldsStackView.widthAnchor),
-            passwordField.widthAnchor.constraint(equalTo: fieldsStackView.widthAnchor)
+            passwordField.widthAnchor.constraint(equalTo: fieldsStackView.widthAnchor),
         ])
     }
 }

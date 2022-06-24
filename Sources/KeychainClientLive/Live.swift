@@ -1,13 +1,13 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Roberto Casula on 19/06/22.
 //
 
-import Security
 import Foundation
 import KeychainClient
+import Security
 
 public struct KeychainClientLive: KeychainClient {
 
@@ -21,7 +21,7 @@ public struct KeychainClientLive: KeychainClient {
         let attributes: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: username,
-            kSecValueData as String: passwordData
+            kSecValueData as String: passwordData,
         ]
 
         let status = SecItemAdd(attributes as CFDictionary, nil)
@@ -40,10 +40,10 @@ public struct KeychainClientLive: KeychainClient {
         var item: CFTypeRef?
 
         guard SecItemCopyMatching(query as CFDictionary, &item) == noErr,
-              let existingItem = item as? [String: Any],
-                 let username = existingItem[kSecAttrAccount as String] as? String,
-                 let passwordData = existingItem[kSecValueData as String] as? Data,
-                 let password = String(data: passwordData, encoding: .utf8)
+            let existingItem = item as? [String: Any],
+            let username = existingItem[kSecAttrAccount as String] as? String,
+            let passwordData = existingItem[kSecValueData as String] as? Data,
+            let password = String(data: passwordData, encoding: .utf8)
         else { return nil }
         return (username, password)
     }

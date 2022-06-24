@@ -1,14 +1,15 @@
 //
 //  AuthClientTests.swift
-//  
+//
 //
 //  Created by Roberto Casula on 16/06/22.
 //
 
-import XCTest
 import ApiClient
 import KeychainClient
 import PersistenceClient
+import XCTest
+
 @testable import AuthClient
 
 class AuthClientTests: XCTestCase {

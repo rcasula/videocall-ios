@@ -1,18 +1,18 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Roberto Casula on 22/06/22.
 //
 
 import Foundation
 
-public extension Array {
+extension Array {
 
     /// Could be used to retrieve the element at the given index, only if the index is inside the array
     /// - Parameter index: the index of the element
     /// - Returns: nil if the index is out of bounds, otherwise the element
-    func safeGetElement(at index: Int) -> Element? {
+    public func safeGetElement(at index: Int) -> Element? {
         guard indices.contains(index) else { return nil }
         return self[index]
     }
@@ -23,7 +23,7 @@ public extension Array {
     ///     let element = array[safe: 2]
     /// - Parameter safe: the index of the element
     /// - Returns: nil if the index is out of bounds, otherwise the element
-    subscript(safe index: Int) -> Element? {
+    public subscript(safe index: Int) -> Element? {
         return safeGetElement(at: index)
     }
 }

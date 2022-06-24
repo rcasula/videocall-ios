@@ -5,8 +5,9 @@
 //  Created by Roberto Casula on 19/06/22.
 //
 
-import XCTest
 import KeychainClient
+import XCTest
+
 @testable import KeychainClientLive
 
 class KeychainClientLiveTests: XCTestCase {
@@ -52,7 +53,6 @@ class KeychainClientLiveTests: XCTestCase {
         XCTAssertNotNil(credentials)
         XCTAssertEqual(credentials?.username, "jshier")
         XCTAssertEqual(credentials?.password, "12345")
-
 
         XCTAssertNoThrow(
             try client.deleteCredentials(for: "jshier")

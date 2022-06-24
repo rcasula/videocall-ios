@@ -1,6 +1,6 @@
 //
 //  MockApiClient.swift
-//  
+//
 //
 //  Created by Roberto Casula on 17/06/22.
 //
@@ -20,7 +20,9 @@ public struct MockApiClient: ApiClient {
         self.enableDelay = enableDelay
     }
 
-    public func login(username: String, password: String, completion: @escaping (Result<Void, ApiError>) -> Void) {
+    public func login(
+        username: String, password: String, completion: @escaping (Result<Void, ApiError>) -> Void
+    ) {
         if enableDelay {
             let randomSeconds = Double.random(in: 1.0...3.5)
             DispatchQueue.main.asyncAfter(deadline: .now() + randomSeconds) {
@@ -31,10 +33,15 @@ public struct MockApiClient: ApiClient {
         }
     }
 
-    private func loginSync(username: String, password: String, completion: @escaping (Result<Void, ApiError>) -> Void) {
+    private func loginSync(
+        username: String, password: String, completion: @escaping (Result<Void, ApiError>) -> Void
+    ) {
         guard let validPassword = enabledUsers[username],
-              validPassword == password
-        else { completion(.failure(.invalidCredentials)); return }
+            validPassword == password
+        else {
+            completion(.failure(.invalidCredentials))
+            return
+        }
         completion(.success(()))
     }
 

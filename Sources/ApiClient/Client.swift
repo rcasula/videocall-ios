@@ -1,6 +1,6 @@
 //
 //  Client.swift
-//  
+//
 //
 //  Created by Roberto Casula on 16/06/22.
 //
@@ -10,6 +10,7 @@ import UIKit
 
 public protocol ApiClient {
 
-    func login(username: String, password: String, completion: @escaping (Result<Void, ApiError>) -> Void)
+    func login(
+        username: String, password: String, completion: @escaping (Result<Void, ApiError>) -> Void)
     func logout(completion: @escaping (Result<Void, ApiError>) -> Void)
 }

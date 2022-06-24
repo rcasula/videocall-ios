@@ -5,19 +5,22 @@
 //  Created by Roberto Casula on 20/06/22.
 //
 
-import UIKit
-import AuthClient
 import ApiClient
+import AuthClient
+import KeychainClientLive
 import LoginFeature
 import PersistenceClient
-import KeychainClientLive
+import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
         let authClient = AuthClient(
             apiClient: MockApiClient(enabledUsers: ["jshier": "test"], enableDelay: true),
             keychainClient: KeychainClientLive(),
@@ -30,4 +33,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-

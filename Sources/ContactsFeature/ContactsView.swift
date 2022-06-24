@@ -1,13 +1,13 @@
 //
 //  ContactsView.swift
-//  
+//
 //
 //  Created by Roberto Casula on 21/06/22.
 //
 
 import Foundation
-import UIKit
 import SharedExtensions
+import UIKit
 
 class ContactsView: UIView {
 
@@ -39,7 +39,7 @@ class ContactsView: UIView {
             tableView.topAnchor.constraint(equalTo: topAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             trailingAnchor.constraint(equalTo: tableView.trailingAnchor),
-            bottomAnchor.constraint(equalTo: tableView.bottomAnchor)
+            bottomAnchor.constraint(equalTo: tableView.bottomAnchor),
         ])
     }
 }

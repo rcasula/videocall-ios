@@ -67,7 +67,7 @@ let package = Package(
                 "LoginFeature",
                 "ContactsClient",
                 "ContactsFeature",
-                "SharedExtensions"
+                "SharedExtensions",
             ]
         ),
         .target(
@@ -75,7 +75,7 @@ let package = Package(
             dependencies: [
                 "AuthClient",
                 "SharedExtensions",
-                "SharedViews"
+                "SharedViews",
             ]
         ),
         .target(
@@ -101,7 +101,7 @@ let package = Package(
             dependencies: [
                 "ApiClient",
                 "KeychainClient",
-                "PersistenceClient"
+                "PersistenceClient",
             ]
         ),
         .target(

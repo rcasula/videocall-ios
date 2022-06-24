@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Roberto Casula on 20/06/22.
 //
@@ -13,12 +13,14 @@ extension UIView {
     ///
     /// - Parameter view: The view to anchor to.
     /// - Returns: The layout constraints needed for this constraint.
-    public func constraintsForAnchoringTo(boundsOf view: UIView, insets: UIEdgeInsets = .zero) -> [NSLayoutConstraint] {
+    public func constraintsForAnchoringTo(boundsOf view: UIView, insets: UIEdgeInsets = .zero)
+        -> [NSLayoutConstraint]
+    {
         return [
             topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top),
             leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: insets.left),
             view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: insets.bottom),
-            view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: insets.right)
+            view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: insets.right),
         ]
     }
 }

@@ -5,11 +5,11 @@
 //  Created by Roberto Casula on 15/06/22.
 //
 
-import UIKit
-import ContactsClient
 import AuthClient
-import SharedModels
+import ContactsClient
 import SharedExtensions
+import SharedModels
+import UIKit
 
 public class ContactsController: UIViewController {
 
@@ -92,9 +92,11 @@ extension ContactsController: UITableViewDataSource {
         return contacts.count
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
+        -> UITableViewCell
+    {
         guard let cell = tableView.dequeueCell(withType: ContactCell.self, for: indexPath),
-              let contact = contacts[safe: indexPath.row]
+            let contact = contacts[safe: indexPath.row]
         else { return .init() }
         cell.configure(with: contact)
         return cell

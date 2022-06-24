@@ -1,12 +1,12 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Roberto Casula on 22/06/22.
 //
 
-import UIKit
 import SharedModels
+import UIKit
 
 class ContactCell: UITableViewCell {
 
@@ -57,8 +57,8 @@ extension UIImageView {
     }
 }
 
-public extension UIImage {
-    convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+extension UIImage {
+    public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
         let rect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
         color.setFill()
