@@ -13,5 +13,7 @@ class StreamCell: UICollectionViewCell {
 
     func configure(with stream: Stream) {
         contentView.backgroundColor = .red
+        contentView.layer.cornerRadius = 12
+        contentView.clipsToBounds = true
     }
 }
