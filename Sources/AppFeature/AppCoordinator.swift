@@ -1,16 +1,18 @@
 //
 //  AppCoordinator.swift
-//
+//  
 //
 //  Created by Roberto Casula on 21/06/22.
 //
 
+import UIKit
+import Foundation
 import AuthClient
+import LoginFeature
 import ContactsClient
 import ContactsFeature
-import Foundation
-import LoginFeature
-import UIKit
+import SharedModels
+import ConversationFeature
 
 public class AppCoordinator: NSObject, Coordinator {
 
@@ -27,39 +29,54 @@ public class AppCoordinator: NSObject, Coordinator {
         self.window = window
         self.authClient = authClient
         self.contactsClient = contactsClient
-
+        self.rootViewController = .init()
+        super.init()
         if let _ = authClient.getSavedCredentials() {
-            let controller = ContactsController(
-                authClient: authClient,
-                contactsClient: contactsClient
-            )
-            self.rootViewController = UINavigationController(rootViewController: controller)
+            self.rootViewController = getContactsController()
         } else {
             self.rootViewController = LoginController(authClient: authClient)
         }
     }
+
 
     public func start() {
         authClient.delegate = self
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
     }
+
+    private func getContactsController() -> UIViewController {
+        let controller = ContactsController(
+            authClient: authClient,
+            contactsClient: contactsClient
+        )
+        controller.delegate = self
+        return UINavigationController(
+            rootViewController: controller
+        )
+    }
 }
 
 extension AppCoordinator: AuthClientDelegate {
 
     public func didLogin() {
-        let controller = UINavigationController(
-            rootViewController: ContactsController(
-                authClient: authClient,
-                contactsClient: contactsClient
-            )
-        )
+        let controller = getContactsController()
+        self.rootViewController = controller
         window.swapRootViewController(with: controller, animationType: .dismiss)
     }
 
     public func didLogout() {
         let controller = LoginController(authClient: authClient)
-        window.swapRootViewController(with: controller, animationType: .present)
+        self.rootViewController = controller
+        window.swapRootViewController(with: rootViewController, animationType: .present)
+    }
+}
+
+extension AppCoordinator: ContactsControllerDelegate {
+
+    public func contactsController(_ controller: ContactsController, startConversationWith contacts: [Contact]) {
+        let roomController = RoomController(contacts: contacts)
+        roomController.modalPresentationStyle = .fullScreen
+        controller.present(roomController, animated: true)
     }
 }

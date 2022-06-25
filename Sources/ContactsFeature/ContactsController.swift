@@ -11,6 +11,10 @@ import SharedExtensions
 import SharedModels
 import UIKit
 
+public protocol ContactsControllerDelegate: AnyObject {
+    func contactsController(_ controller: ContactsController, startConversationWith contacts: [Contact])
+}
+
 public class ContactsController: UIViewController {
 
     private let authClient: AuthClientProtocol
@@ -19,6 +23,9 @@ public class ContactsController: UIViewController {
     private lazy var _view: ContactsView = { .init() }()
 
     private var contacts: [Contact] = []
+    private var selectedContacts: Set<Contact> = []
+
+    public weak var delegate: ContactsControllerDelegate?
 
     public override func loadView() {
         view = _view
@@ -43,14 +50,22 @@ public class ContactsController: UIViewController {
         setupBarButtonItems()
         setupTableView()
         loadContacts()
+        updateStartConversationButton()
     }
 
     private func setupBarButtonItems() {
-        self.navigationItem.leftBarButtonItem = .init(
-            barButtonSystemItem: .add,
-            target: self,
-            action: #selector(didTapAddContact(sender:))
-        )
+        self.navigationItem.leftBarButtonItems = [
+            .init(
+                barButtonSystemItem: .add,
+                target: self,
+                action: #selector(didTapAddContact(sender:))
+            ),
+            .init(
+                barButtonSystemItem: .camera,
+                target: self,
+                action: #selector(didTapStartConversation(sender:))
+            )
+        ]
 
         self.navigationItem.rightBarButtonItem = .init(
             title: "Logout",
@@ -63,6 +78,7 @@ public class ContactsController: UIViewController {
     private func setupTableView() {
         _view.tableView.registerCell(type: ContactCell.self)
         _view.tableView.dataSource = self
+        _view.tableView.delegate = self
     }
 
     private func loadContacts() {
@@ -79,6 +95,10 @@ public class ContactsController: UIViewController {
                 }
             }
         }
+    }
+
+    private func updateStartConversationButton() {
+        navigationItem.leftBarButtonItems?.last?.isEnabled = !selectedContacts.isEmpty
     }
 }
 
@@ -103,10 +123,39 @@ extension ContactsController: UITableViewDataSource {
     }
 }
 
+extension ContactsController: UITableViewDelegate {
+
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        defer { tableView.deselectRow(at: indexPath, animated: false) }
+        guard let contact = contacts[safe: indexPath.row],
+              let cell = tableView.cellForRow(at: indexPath)
+        else { return }
+
+        if selectedContacts.contains(contact) {
+            cell.accessoryType = .none
+            selectedContacts.remove(contact)
+        } else if selectedContacts.count < 4 {
+            cell.accessoryType = .checkmark
+            selectedContacts.insert(contact)
+        }
+
+        updateStartConversationButton()
+    }
+
+//    public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//
+//    }
+}
+
 extension ContactsController {
 
     @IBAction func didTapAddContact(sender: Any) {
 
+    }
+
+    @IBAction func didTapStartConversation(sender: Any) {
+        guard !selectedContacts.isEmpty else { return }
+        delegate?.contactsController(self, startConversationWith: Array(selectedContacts))
     }
 
     @IBAction func didTapLogout(sender: Any) {

@@ -29,8 +29,6 @@ class ContactCell: UITableViewCell {
     }
 
     func configure(with contact: Contact) {
-        accessoryType = .disclosureIndicator
-
         textLabel?.text = contact.name
         detailTextLabel?.text = contact.surname
         imageView?.contentMode = .scaleAspectFit
