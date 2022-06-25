@@ -13,9 +13,14 @@ let package = Package(
             name: "AppFeature",
             targets: ["AppFeature"]
         ),
+        
         .library(
             name: "LoginFeature",
             targets: ["LoginFeature"]
+        ),
+        .library(
+            name: "ConversationFeature",
+            targets: ["ConversationFeature"]
         ),
         .library(
             name: "PersistenceClient",
@@ -67,7 +72,8 @@ let package = Package(
                 "LoginFeature",
                 "ContactsClient",
                 "ContactsFeature",
-                "SharedExtensions",
+                "ConversationFeature",
+                "SharedExtensions"
             ]
         ),
         .target(
@@ -75,7 +81,7 @@ let package = Package(
             dependencies: [
                 "AuthClient",
                 "SharedExtensions",
-                "SharedViews",
+                "SharedViews"
             ]
         ),
         .target(
@@ -101,7 +107,7 @@ let package = Package(
             dependencies: [
                 "ApiClient",
                 "KeychainClient",
-                "PersistenceClient",
+                "PersistenceClient"
             ]
         ),
         .target(
@@ -115,6 +121,13 @@ let package = Package(
             dependencies: [
                 "AuthClient",
                 "ContactsClient",
+                "SharedModels",
+                "SharedExtensions",
+            ]
+        ),
+        .target(
+            name: "ConversationFeature",
+            dependencies: [
                 "SharedModels",
                 "SharedExtensions",
             ]

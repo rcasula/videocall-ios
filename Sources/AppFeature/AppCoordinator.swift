@@ -12,6 +12,7 @@ import LoginFeature
 import ContactsClient
 import ContactsFeature
 import SharedModels
+import ConversationFeature
 
 public class AppCoordinator: NSObject, Coordinator {
 
@@ -59,21 +60,23 @@ public class AppCoordinator: NSObject, Coordinator {
 extension AppCoordinator: AuthClientDelegate {
 
     public func didLogin() {
-        window.swapRootViewController(
-            with: getContactsController(),
-            animationType: .dismiss
-        )
+        let controller = getContactsController()
+        self.rootViewController = controller
+        window.swapRootViewController(with: controller, animationType: .dismiss)
     }
 
     public func didLogout() {
         let controller = LoginController(authClient: authClient)
-        window.swapRootViewController(with: controller, animationType: .present)
+        self.rootViewController = controller
+        window.swapRootViewController(with: rootViewController, animationType: .present)
     }
 }
 
 extension AppCoordinator: ContactsControllerDelegate {
 
     public func contactsController(_ controller: ContactsController, startConversationWith contacts: [Contact]) {
-
+        let roomController = RoomController(contacts: contacts)
+        roomController.modalPresentationStyle = .fullScreen
+        controller.present(roomController, animated: true)
     }
 }
