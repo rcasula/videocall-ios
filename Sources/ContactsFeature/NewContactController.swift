@@ -1,12 +1,12 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Roberto Casula on 25/06/22.
 //
 
-import UIKit
 import SharedModels
+import UIKit
 
 protocol NewContactControllerDelegate: AnyObject {
     func newContactController(_ controller: NewContactController, didSave contact: Contact)
@@ -34,17 +34,18 @@ class NewContactController: UIViewController {
         super.viewDidLoad()
         self.title = "Add contact"
 
-        _view.saveButton.addTarget(self, action: #selector(saveContact(sender:)), for: .touchUpInside)
+        _view.saveButton.addTarget(
+            self, action: #selector(saveContact(sender:)), for: .touchUpInside)
     }
 
     @IBAction func saveContact(sender: Any) {
         guard let name = _view.nameField.text,
-              !name.isEmpty,
-              let surname = _view.surnameField.text,
-              !surname.isEmpty,
-              let avatar = _view.avatarField.text,
-              !avatar.isEmpty,
-              let url = URL(string: avatar)
+            !name.isEmpty,
+            let surname = _view.surnameField.text,
+            !surname.isEmpty,
+            let avatar = _view.avatarField.text,
+            !avatar.isEmpty,
+            let url = URL(string: avatar)
         else { return }
         let contact = Contact(name: name, surname: surname, avatarUrl: url)
         delegate?.newContactController(self, didSave: contact)

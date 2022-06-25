@@ -1,12 +1,12 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Roberto Casula on 25/06/22.
 //
 
-import UIKit
 import SharedExtensions
+import UIKit
 
 class NewContactView: UIView {
 
@@ -75,4 +75,3 @@ class NewContactView: UIView {
         ])
     }
 }
-
