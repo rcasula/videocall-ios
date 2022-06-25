@@ -64,11 +64,16 @@ public class AuthClient: AuthClientProtocol {
             username: username,
             password: password
         ) { [weak self] result in
-            do {
-                try self?.saveCredentials(username: username, password: password)
-                self?.delegate?.didLogin()
-            } catch let error {
-                debugPrint(error)
+            switch result {
+            case .success:
+                do {
+                    try self?.saveCredentials(username: username, password: password)
+                    self?.delegate?.didLogin()
+                } catch let error {
+                    debugPrint(error)
+                }
+            case .failure:
+                break
             }
             completion(result)
         }
