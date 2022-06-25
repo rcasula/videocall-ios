@@ -134,7 +134,7 @@ extension ContactsController: UITableViewDelegate {
         if selectedContacts.contains(contact) {
             cell.accessoryType = .none
             selectedContacts.remove(contact)
-        } else {
+        } else if selectedContacts.count < 4 {
             cell.accessoryType = .checkmark
             selectedContacts.insert(contact)
         }

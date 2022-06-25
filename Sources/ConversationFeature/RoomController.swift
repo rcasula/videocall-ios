@@ -67,7 +67,7 @@ public class RoomController: UIViewController {
         _view.collectionView.registerCell(type: StreamCell.self)
         _view.collectionView.dataSource = self
         _view.collectionView.delegate = self
-        _view.collectionView.contentInset = .init(top: 4, left: 8, bottom: 4, right: 8)
+        _view.collectionView.contentInset = .init(top: 8, left: 8, bottom: 0, right: 8)
     }
 
     @IBAction func didTapHangup(sender: Any) {
@@ -261,14 +261,19 @@ extension RoomController: UICollectionViewDelegateFlowLayout {
         } else {
             numberOfItemsInRow = 2
         }
-        let edgeInsetPadding = 6
-        let insets = _view.collectionView.contentInset
+        let insets = collectionView.contentInset
+        let safeAreaInsets: UIEdgeInsets
+        if #available(iOS 11.0, *) {
+            safeAreaInsets = collectionView.safeAreaInsets
+        } else {
+            safeAreaInsets = UIApplication.shared.keyWindow?.layoutMargins ?? .zero
+        }
         let size = CGSize(
-            width: _view.collectionView.bounds.size.width - insets.left - insets.right,
-            height: _view.collectionView.bounds.size.height - insets.top - insets.bottom
+            width: collectionView.bounds.width - insets.left - insets.right - safeAreaInsets.left - safeAreaInsets.right,
+            height: collectionView.bounds.height - insets.top - insets.bottom - safeAreaInsets.top - safeAreaInsets.bottom
         )
-        let width = (Int(size.width) - (numberOfItemsInRow - 1) * 4 - edgeInsetPadding) / numberOfItemsInRow
-        let height = (Int(size.height) - (numberOfRows - 1) * 4 - edgeInsetPadding) / numberOfRows
+        let width = (Int(size.width) - (numberOfItemsInRow - 1) * 4) / numberOfItemsInRow
+        let height = (Int(size.height) - (numberOfRows - 1) * 4) / numberOfRows
         return CGSize(width: width, height: height)
     }
 }
