@@ -12,8 +12,7 @@ import SharedModels
 import UIKit
 
 public protocol ContactsControllerDelegate: AnyObject {
-    func contactsController(
-        _ controller: ContactsController, startConversationWith contacts: [Contact])
+    func contactsController(_ controller: ContactsController, startConversationWith contacts: [Contact])
 }
 
 public class ContactsController: UIViewController {
@@ -65,7 +64,7 @@ public class ContactsController: UIViewController {
                 barButtonSystemItem: .camera,
                 target: self,
                 action: #selector(didTapStartConversation(sender:))
-            ),
+            )
         ]
 
         self.navigationItem.rightBarButtonItem = .init(
@@ -120,6 +119,11 @@ extension ContactsController: UITableViewDataSource {
             let contact = contacts[safe: indexPath.row]
         else { return .init() }
         cell.configure(with: contact)
+        if selectedContacts.contains(contact) {
+            cell.accessoryType = .checkmark
+        } else if selectedContacts.count < 4 {
+            cell.accessoryType = .none
+        }
         return cell
     }
 }
@@ -129,7 +133,7 @@ extension ContactsController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         defer { tableView.deselectRow(at: indexPath, animated: false) }
         guard let contact = contacts[safe: indexPath.row],
-            let cell = tableView.cellForRow(at: indexPath)
+              let cell = tableView.cellForRow(at: indexPath)
         else { return }
 
         if selectedContacts.contains(contact) {
@@ -143,15 +147,26 @@ extension ContactsController: UITableViewDelegate {
         updateStartConversationButton()
     }
 
-    //    public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-    //
-    //    }
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete,
+              let contact = contacts[safe: indexPath.row]
+        else { return }
+        if selectedContacts.contains(contact) {
+            selectedContacts.remove(contact)
+        }
+        contactsClient.remove(contact: contact)
+        self.contacts.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        loadContacts()
+    }
 }
 
 extension ContactsController {
 
     @IBAction func didTapAddContact(sender: Any) {
-
+        let controller = NewContactController()
+        controller.delegate = self
+        self.present(UINavigationController(rootViewController: controller), animated: true, completion: nil)
     }
 
     @IBAction func didTapStartConversation(sender: Any) {
@@ -177,5 +192,16 @@ extension ContactsController {
         let okAction = UIAlertAction(title: "Ok", style: .default)
         alertController.addAction(okAction)
         self.present(alertController, animated: true)
+    }
+}
+
+extension ContactsController: NewContactControllerDelegate {
+
+    func newContactController(_ controller: NewContactController, didSave contact: Contact) {
+        controller.dismiss(animated: true, completion: nil)
+        contactsClient.add(contact: contact)
+        contacts.append(contact)
+        _view.tableView.insertRows(at: [.init(row: contacts.count - 1, section: 0)], with: .automatic)
+        loadContacts()
     }
 }
