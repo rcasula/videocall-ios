@@ -130,7 +130,8 @@ let package = Package(
             dependencies: [
                 "SharedModels",
                 "SharedExtensions",
-            ]
+            ],
+            resources: []
         ),
         .target(
             name: "SharedModels",
