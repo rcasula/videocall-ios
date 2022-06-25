@@ -1,19 +1,19 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Roberto Casula on 25/06/22.
 //
 
 import UIKit
 
-public extension UICollectionView {
+extension UICollectionView {
 
     /**
     Register cell class by passing the type
      - Parameter type: UICollectionViewCell.Type
      */
-    func registerCell<T>(type: T.Type) where T: UICollectionViewCell {
+    public func registerCell<T>(type: T.Type) where T: UICollectionViewCell {
         let cell = type.identifier
         register(type.self, forCellWithReuseIdentifier: cell)
     }
@@ -23,7 +23,8 @@ public extension UICollectionView {
      - Parameter type: UICollectionViewCell.Type
      - Parameter type: IndexPath
      */
-    func dequeueCell<T>(withType type: T.Type, for indexPath: IndexPath) -> T? where T: UICollectionViewCell {
+    public func dequeueCell<T>(withType type: T.Type, for indexPath: IndexPath) -> T?
+    where T: UICollectionViewCell {
         return dequeueReusableCell(withReuseIdentifier: type.identifier, for: indexPath) as? T
     }
 }

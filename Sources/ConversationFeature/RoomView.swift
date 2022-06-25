@@ -1,13 +1,13 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Roberto Casula on 24/06/22.
 //
 
 import Foundation
-import UIKit
 import SharedExtensions
+import UIKit
 
 class RoomView: UIView {
 
@@ -56,14 +56,16 @@ class RoomView: UIView {
 
     @UsesAutoLayout var hangupButton: UIButton = {
         let view = UIButton(type: .system)
-        view.setImage(UIImage(named: "end-call", in: Bundle.module, compatibleWith: nil), for: .normal)
+        view.setImage(
+            UIImage(named: "end-call", in: Bundle.module, compatibleWith: nil), for: .normal)
         view.tintColor = .red
         return view
     }()
 
     @UsesAutoLayout var disableVideoButton: UIButton = {
         let view = UIButton(type: .system)
-        view.setImage(UIImage(named: "enableVideo", in: Bundle.module, compatibleWith: nil), for: .normal)
+        view.setImage(
+            UIImage(named: "enableVideo", in: Bundle.module, compatibleWith: nil), for: .normal)
         view.tintColor = .white
         view.backgroundColor = .darkGray
         return view
@@ -71,7 +73,8 @@ class RoomView: UIView {
 
     @UsesAutoLayout var muteButton: UIButton = {
         let view = UIButton(type: .system)
-        view.setImage(UIImage(named: "unmute", in: Bundle.module, compatibleWith: nil), for: .normal)
+        view.setImage(
+            UIImage(named: "unmute", in: Bundle.module, compatibleWith: nil), for: .normal)
         view.imageEdgeInsets = .init(top: 10, left: 10, bottom: 10, right: 10)
         view.backgroundColor = .darkGray
         view.tintColor = .white
@@ -101,13 +104,15 @@ class RoomView: UIView {
         cameraPreview.layer.shadowRadius = 5
         cameraPreview.layer.shadowOpacity = 0.5
         cameraPreview.layer.shadowColor = UIColor.black.cgColor
-//        cameraPreview.previewLayer.cornerRadius = 12
-//        cameraPreview.previewLayer.clipsToBounds = true
-//        cameraPreview.previewLayer.addShadow()
+        //        cameraPreview.previewLayer.cornerRadius = 12
+        //        cameraPreview.previewLayer.clipsToBounds = true
+        //        cameraPreview.previewLayer.addShadow()
 
         if #available(iOS 11.0, *) {
             bottomOverlayContainer.layer.cornerRadius = 12
-            bottomOverlayContainer.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            bottomOverlayContainer.layer.maskedCorners = [
+                .layerMinXMinYCorner, .layerMaxXMinYCorner,
+            ]
             bottomOverlayContainer.layer.masksToBounds = false
             bottomOverlayContainer.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
             bottomOverlayContainer.layer.shadowOffset = CGSize(width: 0, height: -3)
@@ -141,15 +146,14 @@ class RoomView: UIView {
         bottomHStackView.addArrangedSubview(disableVideoButton)
         bottomHStackView.addArrangedSubview(hangupButton)
 
-//        collectionView.backgroundColor = .blue
-//        cameraPreview.backgroundColor = .yellow
+        //        collectionView.backgroundColor = .blue
+        //        cameraPreview.backgroundColor = .yellow
 
         if #available(iOS 13.0, *) {
             bottomOverlayContainer.backgroundColor = .systemBackground
         } else {
             bottomOverlayContainer.backgroundColor = .white
         }
-
 
     }
 
@@ -158,8 +162,9 @@ class RoomView: UIView {
             collectionView.topAnchor.constraint(equalTo: topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
-//            bottomAnchor.constraint(equalTo: collectionView.bottomAnchor)
-            bottomOverlayContainer.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 8)
+            //            bottomAnchor.constraint(equalTo: collectionView.bottomAnchor)
+            bottomOverlayContainer.topAnchor.constraint(
+                equalTo: collectionView.bottomAnchor, constant: 8),
         ])
 
         var safeAreaBottom: CGFloat = 0
@@ -171,26 +176,30 @@ class RoomView: UIView {
             bottomOverlayContainer.heightAnchor.constraint(equalToConstant: 120 + safeAreaBottom),
             bottomOverlayContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
             trailingAnchor.constraint(equalTo: bottomOverlayContainer.trailingAnchor),
-            bottomAnchor.constraint(equalTo: bottomOverlayContainer.bottomAnchor)
+            bottomAnchor.constraint(equalTo: bottomOverlayContainer.bottomAnchor),
         ])
 
         NSLayoutConstraint.activate([
-            bottomStackView.topAnchor.constraint(equalTo: bottomOverlayContainer.topAnchor, constant: 6),
-            bottomStackView.leadingAnchor.constraint(equalTo: bottomOverlayContainer.leadingAnchor, constant: 12),
-            bottomOverlayContainer.trailingAnchor.constraint(equalTo: bottomStackView.trailingAnchor, constant: 12),
-            bottomOverlayContainer.bottomAnchor.constraint(equalTo: bottomStackView.bottomAnchor)
+            bottomStackView.topAnchor.constraint(
+                equalTo: bottomOverlayContainer.topAnchor, constant: 6),
+            bottomStackView.leadingAnchor.constraint(
+                equalTo: bottomOverlayContainer.leadingAnchor, constant: 12),
+            bottomOverlayContainer.trailingAnchor.constraint(
+                equalTo: bottomStackView.trailingAnchor, constant: 12),
+            bottomOverlayContainer.bottomAnchor.constraint(equalTo: bottomStackView.bottomAnchor),
         ])
 
         NSLayoutConstraint.activate([
             cameraPreview.heightAnchor.constraint(equalToConstant: 100),
             cameraPreview.widthAnchor.constraint(equalTo: cameraPreview.heightAnchor),
             trailingAnchor.constraint(equalTo: cameraPreview.trailingAnchor, constant: 16),
-            bottomOverlayContainer.topAnchor.constraint(equalTo: cameraPreview.bottomAnchor, constant: 16)
+            bottomOverlayContainer.topAnchor.constraint(
+                equalTo: cameraPreview.bottomAnchor, constant: 16),
         ])
 
         NSLayoutConstraint.activate([
             grabberView.widthAnchor.constraint(equalToConstant: 32),
-            grabberView.heightAnchor.constraint(equalToConstant: 4.5)
+            grabberView.heightAnchor.constraint(equalToConstant: 4.5),
         ])
 
         NSLayoutConstraint.activate([
@@ -199,11 +208,10 @@ class RoomView: UIView {
             disableVideoButton.widthAnchor.constraint(equalToConstant: 50),
             disableVideoButton.heightAnchor.constraint(equalTo: disableVideoButton.widthAnchor),
             muteButton.widthAnchor.constraint(equalToConstant: 50),
-            muteButton.heightAnchor.constraint(equalTo: muteButton.widthAnchor)
+            muteButton.heightAnchor.constraint(equalTo: muteButton.widthAnchor),
         ])
     }
 }
-
 
 extension UIView {
     func addShadow(radius: CGFloat = 3, offset: CGSize = CGSize(width: 1.0, height: 1.0)) {

@@ -1,14 +1,14 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Roberto Casula on 24/06/22.
 //
 
-import Foundation
-import UIKit
-import SharedModels
 import AVFoundation
+import Foundation
+import SharedModels
+import UIKit
 
 private enum SessionSetupResult {
     case success
@@ -34,9 +34,12 @@ public class RoomController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         room.delegate = self
 
-        _view.hangupButton.addTarget(self, action: #selector(didTapHangup(sender:)), for: .touchUpInside)
-        _view.disableVideoButton.addTarget(self, action: #selector(didTapDisableVideo(sender:)), for: .touchUpInside)
-        _view.muteButton.addTarget(self, action: #selector(didTapMuteMicrofone(sender:)), for: .touchUpInside)
+        _view.hangupButton.addTarget(
+            self, action: #selector(didTapHangup(sender:)), for: .touchUpInside)
+        _view.disableVideoButton.addTarget(
+            self, action: #selector(didTapDisableVideo(sender:)), for: .touchUpInside)
+        _view.muteButton.addTarget(
+            self, action: #selector(didTapMuteMicrofone(sender:)), for: .touchUpInside)
     }
 
     required init?(coder: NSCoder) {
@@ -89,9 +92,11 @@ public class RoomController: UIViewController {
     @IBAction func didTapMuteMicrofone(sender: Any) {
         isAudioEnabled.toggle()
         if isAudioEnabled {
-            _view.muteButton.setImage(UIImage(named: "unmute", in: Bundle.module, compatibleWith: nil), for: .normal)
+            _view.muteButton.setImage(
+                UIImage(named: "unmute", in: Bundle.module, compatibleWith: nil), for: .normal)
         } else {
-            _view.muteButton.setImage(UIImage(named: "mute", in: Bundle.module, compatibleWith: nil), for: .normal)
+            _view.muteButton.setImage(
+                UIImage(named: "mute", in: Bundle.module, compatibleWith: nil), for: .normal)
         }
     }
 
@@ -118,12 +123,14 @@ public class RoomController: UIViewController {
              create an AVCaptureDeviceInput for audio during session setup.
              */
             sessionQueue.suspend()
-            AVCaptureDevice.requestAccess(for: .video, completionHandler: { granted in
-                if !granted {
-                    self.setupResult = .notAuthorized
-                }
-                self.sessionQueue.resume()
-            })
+            AVCaptureDevice.requestAccess(
+                for: .video,
+                completionHandler: { granted in
+                    if !granted {
+                        self.setupResult = .notAuthorized
+                    }
+                    self.sessionQueue.resume()
+                })
 
         default:
             // The user has previously denied access.
@@ -155,7 +162,8 @@ public class RoomController: UIViewController {
         guard setupResult == .success else { return }
         captureSession.beginConfiguration()
         guard
-            let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front),
+            let videoDevice = AVCaptureDevice.default(
+                .builtInWideAngleCamera, for: .video, position: .front),
             let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
             captureSession.canAddInput(videoDeviceInput)
         else {
@@ -187,34 +195,48 @@ public class RoomController: UIViewController {
 
             case .notAuthorized:
                 DispatchQueue.main.async {
-                    let changePrivacySetting = "AVCam doesn't have permission to use the camera, please change privacy settings"
-                    let message = NSLocalizedString(changePrivacySetting, comment: "Alert message when the user has denied access to the camera")
-                    let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
+                    let changePrivacySetting =
+                        "AVCam doesn't have permission to use the camera, please change privacy settings"
+                    let message = NSLocalizedString(
+                        changePrivacySetting,
+                        comment: "Alert message when the user has denied access to the camera")
+                    let alertController = UIAlertController(
+                        title: "AVCam", message: message, preferredStyle: .alert)
 
-                    alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"),
-                                                            style: .cancel,
-                                                            handler: nil))
+                    alertController.addAction(
+                        UIAlertAction(
+                            title: NSLocalizedString("OK", comment: "Alert OK button"),
+                            style: .cancel,
+                            handler: nil))
 
-                    alertController.addAction(UIAlertAction(title: NSLocalizedString("Settings", comment: "Alert button to open Settings"),
-                                                            style: .`default`,
-                                                            handler: { _ in
-                                                                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!,
-                                                                                          options: [:],
-                                                                                          completionHandler: nil)
-                    }))
+                    alertController.addAction(
+                        UIAlertAction(
+                            title: NSLocalizedString(
+                                "Settings", comment: "Alert button to open Settings"),
+                            style: .`default`,
+                            handler: { _ in
+                                UIApplication.shared.open(
+                                    URL(string: UIApplication.openSettingsURLString)!,
+                                    options: [:],
+                                    completionHandler: nil)
+                            }))
 
                     self.present(alertController, animated: true, completion: nil)
                 }
 
             case .configurationFailed:
                 DispatchQueue.main.async {
-                    let alertMsg = "Alert message when something goes wrong during capture session configuration"
+                    let alertMsg =
+                        "Alert message when something goes wrong during capture session configuration"
                     let message = NSLocalizedString("Unable to capture media", comment: alertMsg)
-                    let alertController = UIAlertController(title: "AVCam", message: message, preferredStyle: .alert)
+                    let alertController = UIAlertController(
+                        title: "AVCam", message: message, preferredStyle: .alert)
 
-                    alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Alert OK button"),
-                                                            style: .cancel,
-                                                            handler: nil))
+                    alertController.addAction(
+                        UIAlertAction(
+                            title: NSLocalizedString("OK", comment: "Alert OK button"),
+                            style: .cancel,
+                            handler: nil))
 
                     self.present(alertController, animated: true, completion: nil)
                 }
@@ -225,13 +247,17 @@ public class RoomController: UIViewController {
 
 extension RoomController: UICollectionViewDataSource {
 
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(
+        _ collectionView: UICollectionView, numberOfItemsInSection section: Int
+    ) -> Int {
         return room.streams.count
     }
 
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(
+        _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueCell(withType: StreamCell.self, for: indexPath),
-              let stream = room.streams[safe: indexPath.row]
+            let stream = room.streams[safe: indexPath.row]
         else { return .init() }
         cell.configure(with: stream)
         return cell
@@ -240,20 +266,28 @@ extension RoomController: UICollectionViewDataSource {
 
 extension RoomController: UICollectionViewDelegate {
 
-    
 }
 
 extension RoomController: UICollectionViewDelegateFlowLayout {
 
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    public func collectionView(
+        _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+        minimumInteritemSpacingForSectionAt section: Int
+    ) -> CGFloat {
         return 4
     }
 
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    public func collectionView(
+        _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
         return 4
     }
 
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    public func collectionView(
+        _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         let numberOfRows = min(room.streams.count, 2)
         var numberOfItemsInRow: Int
         if room.streams.count <= 2 {
@@ -269,8 +303,10 @@ extension RoomController: UICollectionViewDelegateFlowLayout {
             safeAreaInsets = UIApplication.shared.keyWindow?.layoutMargins ?? .zero
         }
         let size = CGSize(
-            width: collectionView.bounds.width - insets.left - insets.right - safeAreaInsets.left - safeAreaInsets.right,
-            height: collectionView.bounds.height - insets.top - insets.bottom - safeAreaInsets.top - safeAreaInsets.bottom
+            width: collectionView.bounds.width - insets.left - insets.right - safeAreaInsets.left
+                - safeAreaInsets.right,
+            height: collectionView.bounds.height - insets.top - insets.bottom - safeAreaInsets.top
+                - safeAreaInsets.bottom
         )
         let width = (Int(size.width) - (numberOfItemsInRow - 1) * 4) / numberOfItemsInRow
         let height = (Int(size.height) - (numberOfRows - 1) * 4) / numberOfRows

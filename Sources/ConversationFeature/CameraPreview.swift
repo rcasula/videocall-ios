@@ -1,6 +1,6 @@
 //
 //  CameraPreview.swift
-//  
+//
 //
 //  Created by Roberto Casula on 25/06/22.
 //

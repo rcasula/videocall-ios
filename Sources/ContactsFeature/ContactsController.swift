@@ -12,7 +12,8 @@ import SharedModels
 import UIKit
 
 public protocol ContactsControllerDelegate: AnyObject {
-    func contactsController(_ controller: ContactsController, startConversationWith contacts: [Contact])
+    func contactsController(
+        _ controller: ContactsController, startConversationWith contacts: [Contact])
 }
 
 public class ContactsController: UIViewController {
@@ -64,7 +65,7 @@ public class ContactsController: UIViewController {
                 barButtonSystemItem: .camera,
                 target: self,
                 action: #selector(didTapStartConversation(sender:))
-            )
+            ),
         ]
 
         self.navigationItem.rightBarButtonItem = .init(
@@ -128,7 +129,7 @@ extension ContactsController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         defer { tableView.deselectRow(at: indexPath, animated: false) }
         guard let contact = contacts[safe: indexPath.row],
-              let cell = tableView.cellForRow(at: indexPath)
+            let cell = tableView.cellForRow(at: indexPath)
         else { return }
 
         if selectedContacts.contains(contact) {
@@ -142,9 +143,9 @@ extension ContactsController: UITableViewDelegate {
         updateStartConversationButton()
     }
 
-//    public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//
-//    }
+    //    public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    //
+    //    }
 }
 
 extension ContactsController {

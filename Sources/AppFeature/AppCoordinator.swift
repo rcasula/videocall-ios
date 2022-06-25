@@ -1,18 +1,18 @@
 //
 //  AppCoordinator.swift
-//  
+//
 //
 //  Created by Roberto Casula on 21/06/22.
 //
 
-import UIKit
-import Foundation
 import AuthClient
-import LoginFeature
 import ContactsClient
 import ContactsFeature
-import SharedModels
 import ConversationFeature
+import Foundation
+import LoginFeature
+import SharedModels
+import UIKit
 
 public class AppCoordinator: NSObject, Coordinator {
 
@@ -37,7 +37,6 @@ public class AppCoordinator: NSObject, Coordinator {
             self.rootViewController = LoginController(authClient: authClient)
         }
     }
-
 
     public func start() {
         authClient.delegate = self
@@ -74,7 +73,9 @@ extension AppCoordinator: AuthClientDelegate {
 
 extension AppCoordinator: ContactsControllerDelegate {
 
-    public func contactsController(_ controller: ContactsController, startConversationWith contacts: [Contact]) {
+    public func contactsController(
+        _ controller: ContactsController, startConversationWith contacts: [Contact]
+    ) {
         let roomController = RoomController(contacts: contacts)
         roomController.modalPresentationStyle = .fullScreen
         controller.present(roomController, animated: true)
